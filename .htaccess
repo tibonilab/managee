@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteBase /
+
+    RewriteEngine on
+
+    # Hide the application and system directories by redirecting the request to index.php
+    RewriteRule ^(app|core|\.svn) index.php/$1 [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [QSA,L]
+</IFModule>

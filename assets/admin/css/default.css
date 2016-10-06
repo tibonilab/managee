@@ -1,0 +1,48 @@
+* { margin:0; padding:0 }
+.clear { clear:both; }
+
+.validation_error { margin:0; padding:0 }
+
+.image-list { margin:0; padding:0 }
+.image-list li { position: relative; margin:10px 10px 10px 0; list-style: none }
+.image-list li .actions { position: absolute; bottom:-10px; left:20px; display:none } 
+.image-list li:hover .actions { display:block; }
+
+
+.categories ul { margin:0 0 0 -6px; padding:0;}
+.categories li { list-style: none; margin-left:30px; position: relative }
+.categories li > div { background: #f6f6f6; background-image:none; border-bottom:1px solid #fff; display:block; padding: 12px 8px; position: relative; cursor: move }
+.categories li > div:hover { background: #efefef }
+.categories li > div .btn-group { position: absolute; right:5px; top:6px }
+.categories li > div .btn-group btn { padding:6px 5px }
+.categories li > div .label { position: absolute; right:150px; top:12px}
+
+.hide-show { position: absolute; left:-24px; top:7px }
+.hide-show i { cursor: pointer }
+
+
+.table td { vertical-align: middle }
+
+.tooltip .tooltip-inner{ font-size:.8em; padding:6px 8px }
+
+#main-nav.navbar .nav>li>a { padding-top:15px }
+
+#general-search { padding-top:5px }
+
+
+.error { font-size:11px; color:#c10 }
+
+
+.image-wrap { position: relative }
+.image-wrap .hover { position: absolute; left:-1px; top:-1px; }
+
+
+.thumbnails > .btn.pull-right { margin:12px 0 -12px 0 }
+
+
+
+#products-links-tab,
+#products-properties-tab,
+#products-versions-tab,
+#products-videos-tab,
+#products-features-tab { display: none }

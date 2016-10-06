@@ -1,0 +1,1 @@
+Implementare (da shoppamee) gestione localizzazione attività
