@@ -64,7 +64,7 @@ class Front_controller extends Main_controller {
 		$this->data['languages'] = $this->language_model->get_languages(TRUE);
 		
 		// init modules
-		$this->_init_modules();
+		$this->_init_models();
 		
         // init layout
         $this->_init_layout_data();
@@ -116,7 +116,7 @@ class Front_controller extends Main_controller {
         $this->layout->set_metadata('description', $description);
     }
     
-	private function _init_modules()
+	private function _init_models()
 	{
 		$this->load->model(array(
 			'front/front_category_model', 
