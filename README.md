@@ -1,2 +1,2 @@
 # managee
-PHP over CodeIgniter simple CMS
+PHP over CodeIgniter 2.3.* simple CMS
