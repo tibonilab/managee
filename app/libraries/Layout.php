@@ -28,7 +28,7 @@ class Layout {
 	private $snippets_path = 'snippets';
 	private $widgets_path = 'widgets';
 	
-	function Layout() {
+	function __construct() {
         $this->obj =& get_instance();
         // Error prevent if layout not declared from called controller
         $this->layout_view = "layouts/default.php"; 
