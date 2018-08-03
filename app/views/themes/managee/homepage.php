@@ -4,7 +4,7 @@
     </a>
     <div>
         <h1>Managee.</h1>
-        <h2>PHP over CodeIgniter simple CMS</h2>
+        <h2>PHP over CodeIgniter simple CMS.</h2>
     </div>
 </div>
 
