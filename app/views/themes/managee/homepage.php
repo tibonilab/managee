@@ -1,8 +1,35 @@
-<?php
+<div class="epic">
+    <a href="https://github.com/tibonilab/managee" target="_blank" id="github">
+        <i class="fa fa-github"></i>
+    </a>
+    <div>
+        <h1>Managee.</h1>
+        <h2>PHP over CodeIgniter simple CMS</h2>
+    </div>
+</div>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<div class="container" style="margin-top: -120px; min-height: 300px">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <i class="fa fa-star-o"></i>            
+                <h2>Beautifuly designed</h2>
+                <p>Lorem ipsum ?</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <i class="fa fa-flask"></i>            
+                <h2>Easy to extend</h2>
+                <p>Lorem ipsum ?</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <img src="https://cdn.freebiesupply.com/logos/large/2x/codeigniter-logo-png-transparent.png" />
+                <h2>Based on CodeIgniter</h2>
+                <p>Lorem ipsum ?</p>
+            </div>
+        </div>
+    </div>
+</div>
