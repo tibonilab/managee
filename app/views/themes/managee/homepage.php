@@ -21,12 +21,12 @@
             <div class="box">
                 <i class="fa fa-flask"></i>            
                 <h2>Easy to extend</h2>
-                <p>Lorem ipsum ?</p>
+                <!-- <p>Lorem ipsum ?</p> -->
             </div>
         </div>
         <div class="col-md-4">
             <div class="box">
-                <img src="https://cdn.freebiesupply.com/logos/large/2x/codeigniter-logo-png-transparent.png" />
+                <img src="<?php echo assets_url('codeigniter-logo.png', 'img') ?>" />
                 <h2>Based on CodeIgniter</h2>
                 <!-- <p>Lorem ipsum ?</p> -->
             </div>

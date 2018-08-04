@@ -12,14 +12,11 @@
 		
 		<!-- Font Awesome -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
 		
-		<!-- FancyBox -->
-		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
-		
-		<!-- Web Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-		
+		<!-- favicon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo assets_url('apple-icon-57x57.png', 'img') ?>">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo assets_url('apple-icon-60x60.png', 'img') ?>">
 		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo assets_url('apple-icon-72x72.png', 'img') ?>">
@@ -38,10 +35,7 @@
 		<meta name="msapplication-TileImage" content="<?php echo assets_url('ms-icon-144x144.png', 'img') ?>">
 		<meta name="theme-color" content="#ffffff">
 		
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
 
-		<link href="<?php echo assets_url('owl.carousel.min.css', 'js/OwlCarousel2-2.1.4/dist/assets') ?>" rel="stylesheet" type="text/css">
-		<link href="<?php echo assets_url('owl.theme.default.min.css', 'js/OwlCarousel2-2.1.4/dist/assets') ?>" rel="stylesheet" type="text/css">
 		<link href="<?php echo assets_url('main.css', 'css') ?>" rel="stylesheet" type="text/css">
 		
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -81,18 +75,12 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
 		<!-- Backstretch -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+		<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script> -->
 		
 		<!-- Google Map API -->
-		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA"></script>
-		
-		<!-- FancyBox -->
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-		
-		<!-- Owl Carousel -->
-		<script src="<?php echo assets_url('owl.carousel.min.js', 'js/OwlCarousel2-2.1.4/dist') ?>"></script>
-		
+		<!-- <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA"></script> -->
+				
 		<!-- App -->
-		<script src="<?php echo assets_url('app.js', 'js') ?>"></script>
+		<!-- <script src="<?php echo assets_url('app.js', 'js') ?>"></script> -->
 	</body>
 </html>
