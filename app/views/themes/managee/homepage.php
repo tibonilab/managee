@@ -3,7 +3,7 @@
         <i class="fa fa-github"></i>
     </a>
     <div>
-        <h1>Managee.</h1>
+        <h1>manag.ee</h1>
         <h2>PHP over CodeIgniter simple CMS.</h2>
     </div>
 </div>
@@ -14,7 +14,7 @@
             <div class="box">
                 <i class="fa fa-star-o"></i>            
                 <h2>Beautifuly designed</h2>
-                <p>Lorem ipsum ?</p>
+                <!-- <p>Lorem ipsum ?</p> -->
             </div>
         </div>
         <div class="col-md-4">
@@ -28,7 +28,7 @@
             <div class="box">
                 <img src="https://cdn.freebiesupply.com/logos/large/2x/codeigniter-logo-png-transparent.png" />
                 <h2>Based on CodeIgniter</h2>
-                <p>Lorem ipsum ?</p>
+                <!-- <p>Lorem ipsum ?</p> -->
             </div>
         </div>
     </div>
