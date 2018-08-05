@@ -50,7 +50,7 @@ class Layout {
         
         // grab data setted on controller
         $data = $this->obj->get_data();
-        
+
         // Render template
         $data['content_for_layout']         = $this->obj->load->view($this->_layout_view($view), $data, true);
         $data['title_for_layout']           = $this->title;
@@ -68,7 +68,7 @@ class Layout {
         $data['css_for_layout'] = '';
         foreach ($this->css_list as $v)
             $data['css_for_layout'] .= sprintf('<link rel="stylesheet" type="text/css"  href="%s" />', $v);
-        
+
         // Render template
         $this->block_replace = true;
         $output = $this->obj->load->view($this->_layout_view(), $data, $return);

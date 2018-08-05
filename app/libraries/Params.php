@@ -10,7 +10,9 @@ class Params {
 	private $_params;
 	
 	function __construct() {
-		$this->_init_params();
+		if(isset(get_instance()->db)) {
+			$this->_init_params();
+		}
 	}
 	
 	public function __get($var)

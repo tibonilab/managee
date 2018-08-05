@@ -40,7 +40,7 @@ class Front_category_model extends MY_Model{
 	
 	private function _set_foreign_data(Category $category, $products = FALSE)
 	{
-		$category->set_childs($this->get_categories($category->id));
+		$category->set_childs($this->get_categories($category->id, $category->module));
 		$category->set_content($this->get_content($category->id));
 		$category->set_default_image($this->front_image_model->get($category->default_image_id));
 		

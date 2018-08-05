@@ -23,7 +23,7 @@ class MY_Config extends CI_Config {
 		if (class_exists('CI_Controller'))
 		{
 			$CI =& get_instance();
-			$uri = $CI->lang->localized($uri);			
+			$uri = $CI->environment === 'install' ? $uri : $CI->lang->localized($uri);			
 		}
 
 		return parent::site_url($uri);

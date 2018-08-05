@@ -16,10 +16,6 @@ class Courtesy extends Main_controller {
 	
 	public function index()
 	{
-		$slots = 100 - $this->db->from('subscribers')->count_all_results();
-		
-		$this->data['open_slots'] = ($slots < 0) ? 0 : $slots;
-		
 		$this->layout->view('courtesy');
 	}
 	

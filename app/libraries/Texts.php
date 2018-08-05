@@ -9,7 +9,9 @@ class Texts {
 	private $_texts;
 	
 	public function __construct() {
-		$this->_init_texts();
+		if(isset(get_instance()->db)) {
+			$this->_init_texts();
+		}
 	}
 	
 	public function __get($var)

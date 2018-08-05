@@ -9,6 +9,7 @@ class Category_content {
     public $category_id = FALSE;
     public $iso;
     public $active  = TRUE;
+    public $image_id;
     
     public $name;
 	public $description;

@@ -10,7 +10,8 @@ class Front_controller extends Main_controller {
     public $iso;             // lang
     protected $akom;         // akom configs data
     protected $data			= array();  // data for the views
-    
+	protected $_develop;
+
 	public $texts;
     
     public function __construct() {
@@ -21,29 +22,29 @@ class Front_controller extends Main_controller {
 			redirect(base_url('courtesy'), 'location', 302);
 		}
 		
-        $this->iso = $this->uri->segment(1);
-        
+		$this->iso = $this->uri->segment(1);
+		
 		if(strlen($this->iso) != 2)
 		{
 			$this->iso = 'it';
 		}
 		
-        // no language in uri -> default language
-        if( ! $this->iso)
-        {
-            $this->language = $this->language_model->get_default_language();
-            $this->iso = $this->language->iso;
-        }
-        else
-        {
-            $this->language = $this->language_model->get_language($this->iso);
+		// no language in uri -> default language
+		if( ! $this->iso)
+		{
+			$this->language = $this->language_model->get_default_language();
+			$this->iso = $this->language->iso;
+		}
+		else
+		{
+			$this->language = $this->language_model->get_language($this->iso);
 
-            // check if language exists and if is enabled, if not -> homepage
-            if( ! $this->language OR ! $this->language->is_active())
-            {
-                redirect(home_url());
-            }
-        }
+			// check if language exists and if is enabled, if not -> homepage
+			if( ! $this->language OR ! $this->language->is_active())
+			{
+				redirect(home_url());
+			}
+		}
 			
 		if($this->iso == 'ar')
 		{
@@ -54,7 +55,7 @@ class Front_controller extends Main_controller {
 		{
 			$this->data['lang_suffix'] = '';
 		}
-        
+		
 		//$this->_lang_redirect();
 		
 		
@@ -66,8 +67,9 @@ class Front_controller extends Main_controller {
 		// init modules
 		$this->_init_models();
 		
-        // init layout
-        $this->_init_layout_data();
+		// init layout
+		$this->_init_layout_data();
+		
     }
 	
 	public function set_meta_by($item)
@@ -176,10 +178,8 @@ class Front_controller extends Main_controller {
 		else
 		{
 			$this->layout->view($this->_views_path . '/' . $view, $data, $return);
-		}
-		
-	}
-	
+		}		
+	}	
 }
 
 ?>
