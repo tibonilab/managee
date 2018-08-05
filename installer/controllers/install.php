@@ -123,17 +123,17 @@ class Install extends CI_Controller {
 			
 			if ( ! $this->_check_connection($this->db_driver)) 
 			{
-                $this->data['error'] = 'Errore durante la connessione dal database: controlla i dati inseriti.';
+                $this->data['error'] = 'Database connection error. Please check provided informations.';
 			} 
 			else 
 			{
 				if ( ! $this->_update_database_config_file(self::DB_CONFIG_FILE)) 
 				{
-                    $this->data['error'] = 'Errore di scrittura: abilita i permessi di scrittura per il file <b>'.self::DB_CONFIG_FILE.'</b>.';
+                    $this->data['error'] = 'Error writing config file: please enable write permission for file <b>'.self::DB_CONFIG_FILE.'</b>.';
 				} 
 				else if ( ! $this->_update_database_config_file(self::INSTALLER_DB_CONFIG_FILE)) 
 				{
-                    $this->data['error'] = 'Errore di scrittura: abilita i permessi di scrittura per il file <b>'.self::INSTALLER_DB_CONFIG_FILE.'</b>.';
+                    $this->data['error'] = 'Error writing config file: please enable write permission for file <b>'.self::INSTALLER_DB_CONFIG_FILE.'</b>.';
 				} 
 				else 
 				{

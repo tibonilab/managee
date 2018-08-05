@@ -13,6 +13,9 @@
 		<!-- Font Awesome -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         				
+
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
+        
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -23,7 +26,7 @@
         <style>
             body {
                 background: #eee;
-                background: linear-gradient(45deg, #f6f6f6 44%, #e6e6e6 87%);
+                background: linear-gradient(45deg, #cc00ff 44%, #9600ff 87%);
                 /* background: #e84001; */
             }
 
@@ -42,15 +45,24 @@
                 padding: 3em;
             }
 
-            .box h1 {
+            .box h3 {
                 color: #525252;
+                text-transform: uppercase;
+                
             }
 
-            .box h1 span {
+            .box h3 span {
                 float: right;
                 font-size: 10px;
                 text-transform: uppercase;
-                color: #999;
+                background: #9600ff;
+                color: #fff;
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 line-height: 36px;
                 font-weight: bold;
             }
@@ -82,12 +94,15 @@
 
             .btn-primary {
                 border-radius: 0;
-                background: #e84001;
-                font-size: 11px; 
+                background: #9600ff;
+                font-size: 10px; 
                 letter-spacing: 2pt;
-                text-transform: lowercase;
+                word-spacing: 5pt;
+                text-transform: uppercase;
                 border: none;
                 padding: 1em 2em;
+                font-weight: bold;
+                color: #fff;
             }
 
             .btn-primary:hover, 
@@ -96,7 +111,34 @@
             .btn-primary:active:focus,
             .btn-primary.active { 
                 opacity: .8;
-                background: #e84001;
+                background: #9600ff;
+                color: #fff;                
+            }
+
+            .splash {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                width: 100%;
+                text-align: center;
+            }
+
+            .splash h1,
+            .splash h2 {
+                font-family: "Source Sans Pro", sans-serif;
+                letter-spacing: -2pt;
+                font-size: 98px;
+                font-weight: 200;
+                opacity: .6;
+                color: #fff;
+                text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);    
+            }
+
+            .splash h2 {
+                margin-top: 1em;
+                font-size: 42px;
+                letter-spacing: -.5pt;
             }
         </style>
 	</head>
@@ -104,10 +146,15 @@
 
 		<div class="centerd-content">
             <?php echo $content_for_layout ?>
+
+            <div class="splash">
+                <div>
+                    <h1>manag.ee</h1>
+                    <h2>PHP over CodeIgniter simple CMS</h2>
+                </div>
+            </div>
         </div>
-        <div>
-            manag.ee
-        </div>
+        
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

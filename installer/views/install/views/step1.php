@@ -1,9 +1,11 @@
 <div class="box">
 
-    <h1>Install manag.ee <span>step 1</span></h1>
+    <h3>Database connection <span>step 1</span></h3>
     <?php echo form_open('', 'class="form"') ?>
 
         <p>Please provide here your database informations.</p>
+
+        <hr />
 
         <label>Database name</label>
         <?php echo form_input('database', set_value('database'), 'class="form-control"') ?>
@@ -22,7 +24,7 @@
         <br />
         <?php endif ?>
 
-        <?php echo form_submit(null, 'Avanti', 'class="btn btn-primary"') ?>
+        <?php echo form_submit(null, 'Go ahead', 'class="btn btn-primary"') ?>
 
     <?php echo form_close() ?>
 </div>

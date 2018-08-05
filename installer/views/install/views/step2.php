@@ -1,6 +1,6 @@
 <div class="box">
 
-    <h1>Install manag.ee <span>step 2</span></h1>
+    <h3>Website informations <span>step 2</span></h3>
     <?php echo form_open('', 'class="form"') ?>
 
         <p>Insert here basic informations about the website.</p>

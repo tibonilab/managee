@@ -1,6 +1,6 @@
 <div class="box">
 
-    <h1>Install manag.ee <span>step 3</span></h1>
+    <h3>Access keys <span>step 3</span></h3>
     <?php echo form_open('', 'class="form"') ?>
 
         <p>Choose now your superadmin username and password.</p>
