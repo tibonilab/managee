@@ -22,10 +22,12 @@ class Install extends CI_Controller {
 
 		if($this->_is_installed() && uri_string() !== 'install') {
             redirect('install');
-        }
+		}
     }
 	
 	private function _view($view) {
+		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
+
 		// set content for layout with returned view...
 		$viewData = [
 			'content_for_layout' => $this->load->view('install/views/' . $view, $this->data, TRUE)
@@ -149,9 +151,24 @@ class Install extends CI_Controller {
 	{ 
 		if($this->form_validation->run()) 
 		{
-			//$this->db->
+			// TODO: create empty db
 
-            //$this->_goto_step(3);
+			$this->db->insert_batch('configs', [
+				[
+					'key' => 'website_title',
+					'value' => $this->input->post('website_title')
+				],
+				[
+					'key' => 'default_title',
+					'value' => $this->input->post('default_title')
+				],
+				[
+					'key' => 'frontend_theme',
+					'value' => $this->input->post('frontend_theme')
+				],
+			]);
+
+            $this->_goto_step(3);
         }
 
         $this->_view('step2');
@@ -159,6 +176,18 @@ class Install extends CI_Controller {
 
 	public function step3() 
 	{ 
+		if($this->form_validation->run())
+		{
+			// TODO: create user
+
+			$this->db->insert('configs', [
+				'key' => 'is_installed',
+				'value' => '1'
+			]);
+
+			redirect('admin');
+		}
+
         $this->_view('step3');
     }
 }

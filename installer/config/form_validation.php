@@ -4,40 +4,52 @@ $config = [
     'install/step1' => [
         [
             'field' => 'hostname',
-            'rules' => '',
+            'rules' => 'trim|required',
             'label' => ''
         ],
         [
             'field' => 'database',
-            'rules' => '',
-            'label' => ''
+            'rules' => 'trim|required',
+            'label' => 'database name'
         ],
         [
             'field' => 'username',
-            'rules' => '',
+            'rules' => 'trim|required',
             'label' => ''
         ],
         [
             'field' => 'password',
-            'rules' => '',
+            'rules' => 'trim|required',
             'label' => ''
         ],
     ],
     'install/step2' => [
         [
             'field' => 'website_title',
-            'rules' => '',
-            'label' => ''
+            'rules' => 'trim|required',
+            'label' => 'website title'
         ],
         [
             'field' => 'default_title',
-            'rules' => '',
-            'label' => ''
+            'rules' => 'trim|required',
+            'label' => 'frontend default title'
         ],
         [
             'field' => 'frontend_theme',
-            'rules' => '',
-            'label' => ''
+            'rules' => 'trim|required',
+            'label' => 'frontend theme name'
         ],
+    ],
+    'install/step3' => [
+        [
+            'field' => 'username',
+            'rules' => 'trim|required',
+            'label' => 'username'
+        ],
+        [
+            'field' => 'password',
+            'rules' => 'trim|required',
+            'label' => 'password'
+        ],        
     ]
 ];

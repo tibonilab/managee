@@ -76,7 +76,7 @@
             }
 
             form label {
-                padding: 2.5em 0 .25em 0;
+                padding: 1.5em 0 .25em 0;
                 font-size:10px;
                 color: #525252;
                 text-transform: uppercase;
@@ -96,8 +96,8 @@
                 border-radius: 0;
                 background: #9600ff;
                 font-size: 10px; 
-                letter-spacing: 2pt;
-                word-spacing: 5pt;
+                /* letter-spacing: 2pt; */
+                /* word-spacing: 5pt; */
                 text-transform: uppercase;
                 border: none;
                 padding: 1em 2em;
@@ -139,6 +139,20 @@
                 margin-top: 1em;
                 font-size: 42px;
                 letter-spacing: -.5pt;
+            }
+
+            div.error {
+                background: red; 
+                color: #fff; 
+                padding: 8px;
+                font-size:12px;
+            }
+
+            span.error {
+                color: red;
+                padding: 8px 0;
+                display: block;
+                font-size: 12px;
             }
         </style>
 	</head>
