@@ -125,7 +125,8 @@
             }
 
             .splash h1,
-            .splash h2 {
+            .splash h2,
+            .splash h4 {
                 font-family: "Source Sans Pro", sans-serif;
                 letter-spacing: -2pt;
                 font-size: 98px;
@@ -154,6 +155,28 @@
                 display: block;
                 font-size: 12px;
             }
+
+            .splash h4 {
+                font-size: 28px;
+                letter-spacing: -.5pt;
+                margin-top: 3em;                
+                opacity: 1;
+            }
+
+            .splash h4 a:hover { 
+                opacity: 1;
+            }
+
+            .splash h4 a {
+                color: #fff;
+                opacity: .9;
+                text-decoration: none;
+                margin: 0 .5em;
+            }
+
+            .splash h4 span {
+                opacity: .6;
+            }
         </style>
 	</head>
 	<body>
@@ -164,7 +187,13 @@
             <div class="splash">
                 <div>
                     <h1>manag.ee</h1>
-                    <h2>PHP over CodeIgniter simple CMS</h2>
+
+                    <?php if($is_installed()): ?>
+                        <h2>is succesfully installed!</h2>
+                        <h4><a href="<?php echo base_url() ?>">Go to the homepage</a><span> | </span><a href="<?php echo base_url('admin/dashboard') ?>">Access control panel</a></h4>
+                    <?php else: ?>
+                        <h2>PHP over CodeIgniter simple CMS</h2>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

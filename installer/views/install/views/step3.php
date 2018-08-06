@@ -19,7 +19,7 @@
         </div>
 
         <br />
-        <?php echo form_submit('', 'Avanti', 'class="btn btn-primary"') ?>
+        <?php echo form_submit('', 'Go ahead', 'class="btn btn-primary"') ?>
 
     <?php echo form_close() ?>
     
