@@ -2,6 +2,10 @@
 
 class Database_generator {
 
+    function __get($param) {
+        return get_instance()->$param;
+    }
+
     private function _generate_array_of_queries_by_sql_file()
     {
         // Temporary variable, used to store current query
@@ -34,19 +38,24 @@ class Database_generator {
         return $queries;
     }
 
-    public function create_db($db) 
+    public function database_exists() 
     {
-        $db->trans_begin();
+        return $this->db->from('configs')->count_all_results() > 0;
+    }
+
+    public function create_db() 
+    {
+        $this->db->trans_begin();
 
         try {
             foreach($this->_generate_array_of_queries_by_sql_file() as $query) {
-                $db->query($query);
+                $this->db->query($query);
             }
 
-            $db->trans_commit();
+            $this->db->trans_commit();
 
         } catch (Exception $e) {
-            $db->trans_rollback();
+            $this->db->trans_rollback();
         }
 
     }

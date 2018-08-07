@@ -22,7 +22,7 @@ class Install extends CI_Controller {
 		
 		// default installation check
 		if($this->_is_installed() && uri_string() !== 'install') {
-			redirect('install');
+			redirect('install', 'refresh');
 		}
 	}
 	
@@ -72,24 +72,33 @@ class Install extends CI_Controller {
 		if($this->form_validation->run()) 
 		{
 			$this->load->library('database_generator');
-			$this->database_generator->create_db($this->db);
-	
-			$this->db->insert_batch('configs', [
-				[
-					'key' => 'website_title',
-					'value' => $this->input->post('website_title')
-				],
-				[
-					'key' => 'default_title',
-					'value' => $this->input->post('default_title')
-				],
-				[
-					'key' => 'frontend_theme',
-					'value' => $this->input->post('frontend_theme')
-				],
-			]);
-	
-			$this->_goto_step(3);
+
+			if($this->database_generator->database_exists()) 
+			{
+				$this->_goto_step('access');
+			} 
+			else 
+			{
+				$this->database_generator->create_db();
+		
+				$this->db->insert_batch('configs', [
+					[
+						'key' => 'website_title',
+						'value' => $this->input->post('website_title')
+					],
+					[
+						'key' => 'default_title',
+						'value' => $this->input->post('default_title')
+					],
+					[
+						'key' => 'frontend_theme',
+						'value' => $this->input->post('frontend_theme')
+					],
+				]);
+		
+				$this->_goto_step(3);
+			}
+			
 		}
 	
 		$this->_view('step2');
@@ -106,7 +115,7 @@ class Install extends CI_Controller {
 				'value' => '1'
 			]);
 	
-			redirect(base_url('admin/dashboard'), 'refresh');
+			$this->_goto_step('access');
 		}
 	
 		$this->_view('step3');
@@ -185,8 +194,12 @@ class Install extends CI_Controller {
 	}
 	
 	private function _goto_step($step) {
-		redirect('install/step' . $step);
-    }
+		if($step === 'access') {
+			redirect(base_url('admin/dashboard'), 'refresh');
+		} 
+		
+		redirect('install/step' . $step, 'refresh');
+	}
 	
 	private function _view($view) {
 		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
@@ -194,7 +207,7 @@ class Install extends CI_Controller {
 		// set content for layout with returned view...
 		$viewData = [
 			'content_for_layout' => $this->load->view('install/views/' . $view, $this->data, TRUE),
-			'is_installed' => function () { $CI =& get_instance(); return $CI->_is_installed(); }
+			'is_installed' => $this->_is_installed()
 		];
 
 		// ...and put it into default layout
