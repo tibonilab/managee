@@ -8,8 +8,7 @@ class Install extends CI_Controller {
 	
     protected $_develop = TRUE;
 	
-    const DB_CONFIG_FILE = APPCONFIGPATH . 'config/database.php';
-    const INSTALLER_DB_CONFIG_FILE = APPPATH . 'config/database.php';
+	const DB_CONFIG_FILE = APPCONFIGPATH . 'config/database.php';    
 	
     function __construct() {
 		parent::__construct();        
@@ -49,13 +48,9 @@ class Install extends CI_Controller {
 			} 
 			else 
 			{
-				if ( ! $this->_update_database_config_file(self::DB_CONFIG_FILE)) 
+				if ( ! $this->_update_database_config_file()) 
 				{
-					$this->data['error'] = 'Error writing config file: please enable write permission for file <b>'.self::DB_CONFIG_FILE.'</b>.';
-				} 
-				else if ( ! $this->_update_database_config_file(self::INSTALLER_DB_CONFIG_FILE)) 
-				{
-					$this->data['error'] = 'Error writing config file: please enable write permission for file <b>'.self::INSTALLER_DB_CONFIG_FILE.'</b>.';
+					$this->data['error'] = 'Error writing config file: please enable write permission for file <b>'. self::DB_CONFIG_FILE .'</b>.';
 				} 
 				else 
 				{
@@ -162,7 +157,7 @@ class Install extends CI_Controller {
 	}
 	
 	private function _grab_db_config() {
-		include(APPPATH . 'config/database.php');
+		include(self::DB_CONFIG_FILE);
 
 		return [
 			'hostname' => $db['default']['hostname'],
@@ -173,11 +168,11 @@ class Install extends CI_Controller {
 		];
 	}
 	
-	private function _update_database_config_file($path_to_config_file) {
+	private function _update_database_config_file() {
 		$this->load->helper('file');
 		
 		// read and explode db config file
-		$exploded_db_config_file = explode("\n", read_file($path_to_config_file));
+		$exploded_db_config_file = explode("\n", read_file(self::DB_CONFIG_FILE));
 
 		// update configuration file
 		$exploded_db_config_file[52] = "\$db['default']['hostname'] = '" . $this->input->post('hostname') . "';";
@@ -187,7 +182,7 @@ class Install extends CI_Controller {
 		$exploded_db_config_file[56] = "\$db['default']['dbdriver'] = '" . $this->db_driver . "';";
 		
 		// save new config file
-		$wrote = write_file($path_to_config_file, implode("\n", $exploded_db_config_file));
+		$wrote = write_file(self::DB_CONFIG_FILE, implode("\n", $exploded_db_config_file));
 		
 		// wrote is FALSE when write fails
 		return $wrote !== FALSE;
@@ -198,7 +193,7 @@ class Install extends CI_Controller {
 			redirect(base_url('admin/dashboard'), 'refresh');
 		} 
 		
-		redirect('install/step' . $step, 'refresh');
+		redirect('install/step' . $step);
 	}
 	
 	private function _view($view) {
