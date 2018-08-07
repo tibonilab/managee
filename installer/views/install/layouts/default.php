@@ -188,7 +188,7 @@
                 <div>
                     <h1>manag.ee</h1>
 
-                    <?php if($is_installed()): ?>
+                    <?php if($is_installed): ?>
                         <h2>is succesfully installed!</h2>
                         <h4><a href="<?php echo base_url() ?>">Go to the homepage</a><span> | </span><a href="<?php echo base_url('admin/dashboard') ?>">Access control panel</a></h4>
                     <?php else: ?>
