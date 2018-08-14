@@ -118,15 +118,16 @@ class Install extends CI_Controller {
 	
 	private function _is_installed() {
 		
-		if ( $this->db->conn_id !== FALSE) {
+		if ( $this->db->conn_id !== FALSE) 
+		{
 			
-			if ($this->db->table_exists('configs')) {
+			if ($this->db->table_exists('configs')) 
+			{
 				$is_installed = $this->db->where('key', 'is_installed')
 				->get('configs')
 				->row();
 				
-				return $is_installed && (bool) $is_installed->value;
-				
+				return $is_installed && (bool) $is_installed->value;	
 			}
 			
 			return FALSE;
