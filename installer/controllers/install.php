@@ -174,12 +174,44 @@ class Install extends CI_Controller {
 		// read and explode db config file
 		$exploded_db_config_file = explode("\n", read_file(self::DB_CONFIG_FILE));
 
-		// update configuration file
-		$exploded_db_config_file[52] = "\$db['default']['hostname'] = '" . $this->input->post('hostname') . "';";
-		$exploded_db_config_file[53] = "\$db['default']['database'] = '" . $this->input->post('database') . "';";
-		$exploded_db_config_file[54] = "\$db['default']['username'] = '" . $this->input->post('username') . "';";
-		$exploded_db_config_file[55] = "\$db['default']['password'] = '" . $this->input->post('password') . "';";
-		$exploded_db_config_file[56] = "\$db['default']['dbdriver'] = '" . $this->db_driver . "';";
+		// init replacing array
+		$search_value = [
+			(object) [
+				'search' => "\$db['default']['hostname']",
+				'value' => $this->input->post('hostname')
+			],
+			(object) [
+				'search' => "\$db['default']['database']",
+				'value' => $this->input->post('database')
+			],
+			(object) [
+				'search' => "\$db['default']['username']",
+				'value' => $this->input->post('username')
+			],
+			(object) [
+				'search' => "\$db['default']['password']",
+				'value' => $this->input->post('password')
+			],
+			(object) [
+				'search' => "\$db['default']['dbdriver']",
+				'value' => $this->db_driver
+			],
+
+		];
+
+		// cycle all config file lines
+		for($k = 0; $k < count($exploded_db_config_file); $k++) 
+		{
+			// search for and replace value
+			foreach($search_value as $obj) 
+			{
+				// value injection
+				if(strpos($exploded_db_config_file[$k], $obj->search) !== FALSE) 
+				{
+					$exploded_db_config_file[$k] = $obj->search . " = '" . $obj->value . "';";
+				}
+			}
+		}
 		
 		// save new config file
 		$wrote = write_file(self::DB_CONFIG_FILE, implode("\n", $exploded_db_config_file));
