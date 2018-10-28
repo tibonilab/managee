@@ -145,11 +145,35 @@ class Page_model extends MY_Model {
         }
 		
 		$this->_save_images($id, $image_data);
-		$this->_save_attachments($id);
+        $this->_save_attachments($id);
+        $this->_save_tags($id);
 		
         return $id;
     }
     
+    private function _save_tags($page_id) 
+    {
+        $this->db->delete('page_tags', ['page_id' => $page_id]);
+
+        $tags = $this->input->post('tags');
+        
+        if($tags) 
+        {
+            $batch_data = [];
+    
+            foreach($tags as $tag_id)
+            {
+                $batch_data[] = [
+                    'page_id' => $page_id,
+                    'tag_id' => $tag_id
+                ];
+            }
+
+            $this->db->insert_batch('page_tags', $batch_data);
+        }
+
+    }
+
     
     private function _save_attachments($page_id)
     {

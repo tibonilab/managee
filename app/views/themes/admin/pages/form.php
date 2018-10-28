@@ -14,6 +14,10 @@
 				<?php echo form_label('Nome Pagina', 'page[name]') ?>
 				<?php echo form_input('page[name]', set_value('page[name]', $page->name), 'class="span12" id="page[name]" placeholder="Nome di riferimento alla pagina.."') ?>
 				
+				<?php echo form_label('Tags', 'tags') ?>
+				<?php echo form_multiselect('tags[]', $tags, set_value('tags[]', $page->get_tag_id_list()), 'class="span12" id="tags" placeholder="Seleziona uno o più tag"') ?>
+
+
                 <!--
 				<?php if($page->id): ?>
 				<?php echo form_label('Creata il', 'page[created]') ?>
@@ -223,10 +227,22 @@
         
 <?php echo form_close() ?>
 
+<style>
+.fstElement {
+	width: 100%;
+}
+
+.fstMultipleMode .fstControls{
+	width: 100%;
+}
+</style>
+
 <script>
 $(document).ready(function () {
     $('#contentTab a:first').tab('show'); 
 	
 	$('.datepicker').datepicker({dateFormat:'yy-mm-dd'});
+
+	$('#tags').fastselect();
 })
 </script>

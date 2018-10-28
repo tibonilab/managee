@@ -31,7 +31,12 @@ class Main_controller extends CI_Controller {
     public function get_data()
     {
         return $this->data;
-    }
+	}
+	
+	public function set_data(array $array = []) 
+	{
+		$this->data = array_merge($array, $this->data);
+	}
 
 	
 }

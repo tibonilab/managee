@@ -15,6 +15,8 @@ class Page extends Route{
 	public $form;
 	public $default_image_id;
 	
+	public $tags = [];
+
 	protected $_rel_table		= 'page_attachments';
 	protected $_rel_item		= 'page_id';
 	
@@ -191,6 +193,20 @@ class Page extends Route{
 		return (bool) $this->showcase_id;
 	}
 	
+
+	public function get_tag_id_list() 
+	{
+		$list = $this->db->get_where('page_tags', ['page_id' => $this->id])->result();
+
+		$id_list = [];
+
+		foreach($list as $item) 
+		{
+			$id_list[] = $item->tag_id;
+		}
+
+		return $id_list;
+	}
 }
 
 ?>
