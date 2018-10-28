@@ -24,7 +24,6 @@ class Route
 		
 		$this->_slug = $this->route_model->get_slug_by_id($route_id);
 	}
-	
 		
 	public function get_route()
 	{
@@ -32,7 +31,14 @@ class Route
 		{
 			$this->set_route();
 		}
-		return base_url($this->_slug);
+
+		$segments = explode('/', $this->_slug);
+
+		if($this->router->_is_one_language()) {
+			unset($segments[0]);
+		}
+
+		return base_url(implode('/', $segments));
 	}
 	
 	public function has_default_image()

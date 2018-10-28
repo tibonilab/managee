@@ -26,7 +26,7 @@ class MY_Router extends CI_Router{
 		return parent::_validate_request($segments);
 	}
 	
-	protected function _is_one_language() 
+	public function _is_one_language() 
 	{
 		$db =& DB();
 		return ($db->where('active', 1)->from('languages')->count_all_results() > 1) ? FALSE : TRUE;
@@ -47,7 +47,11 @@ class MY_Router extends CI_Router{
 	
 	protected function _get_db_slug($slug) {
 		$db =& DB();
-		$db->where('slug', $slug);
+		if($this->_is_one_language()) {
+			$db->where('slug', $db->get('languages')->row()->iso . '/' . $slug);
+		} else {
+			$db->where('slug', $slug);
+		}
 		return $db->get('routes')->row();
 	}
 	
