@@ -7,7 +7,7 @@
     RewriteRule ^(installer) install.php/$1 [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(install|install/)(.*)$ install.php?/$1 [QSA,L]
+    RewriteRule ^(install|install/(.*))$ install.php?/$1 [QSA,L]
 
     # Hide the application and system directories by redirecting the request to index.php
     RewriteRule ^(app|core|\.svn) index.php/$1 [L]
