@@ -186,6 +186,11 @@ $route['admin/multimedia/video/modifica/(:num)']		= 'admin/videos/form/$1';
 $route['admin/multimedia/video/inserisci']			= 'admin/videos/form';
 $route['admin/multimedia/video']						= 'admin/videos';
 
+$route['admin/contenuti/tags/elimina/(:num)']		= 'admin/tags/delete/$1';
+$route['admin/contenuti/tags/modifica/(:num)']		= 'admin/tags/form/$1';
+$route['admin/contenuti/tags/inserisci']			= 'admin/tags/form';
+$route['admin/contenuti/tags']						= 'admin/tags';
+
 
 $route['admin/contenuti/menu/elimina/(:num)']							= 'admin/menus/delete/$1';
 $route['admin/contenuti/menu/modifica/(:num)']							= 'admin/menus/form/$1';

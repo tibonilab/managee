@@ -31,7 +31,9 @@
       <!--<script src="assets/admin/js/jquery.ui.touch-punch.js"></script>-->
       <script src="assets/admin/js/jquery.mjs.nestedSortable.js"></script>
       <script src="assets/admin/ckeditor/ckeditor.js"></script>
+      <script src="assets/admin/js/fastselect.standalone.min.js"></script>
 	  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" media="screen">
+	  <link href="assets/admin/js/fastselect.min.css" rel="stylesheet" media="screen">
       <?php echo $css_for_layout ?>
       <?php echo $js_for_layout?>
       <script type="text/javascript">

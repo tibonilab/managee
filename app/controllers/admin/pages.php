@@ -14,7 +14,8 @@ class Pages extends Admin_controller {
 		$this->load->model(array(
 			'page_model', 
 			'showcase_model',
-			'category_model'
+            'category_model',
+            'tag_model'
 		));
     }
     
@@ -60,7 +61,8 @@ class Pages extends Admin_controller {
         $this->data['contents']		= $page->get_contents();
         $this->data['showcases']	= $this->showcase_model->get_all(TRUE);
 		$this->data['categories']	= array('Nessuna categoria') + $this->category_model->get_all_as_list('pages');
-		
+        $this->data['tags']         = $this->tag_model->get_all_as_list();
+        
         // form validation
         $this->form_validation->set_rules($this->page_model->init_validation_rules($id));
         if($this->form_validation->run() == FALSE)
@@ -75,7 +77,7 @@ class Pages extends Admin_controller {
             // save and redirect
             $page_data			= $this->input->post('page');
             $content_data		= $this->input->post('content');
-            $image_data			= $this->input->post('image');
+            $image_data			= $this->input->post('image');            
 			
             $page_id = $this->page_model->save($id, $page_data, $content_data, $image_data);
             
